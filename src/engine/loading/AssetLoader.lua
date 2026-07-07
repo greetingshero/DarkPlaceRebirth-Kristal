@@ -15,10 +15,17 @@ function AssetLoader:beginLoad(file, queue) end
 
 ---@param asset_id string
 ---@param task TTask
+---@param predecoded table?
+---|string
+---|love.Data
 ---@return TTaskResult
-function AssetLoader:load(asset_id, task)
+function AssetLoader:load(asset_id, task, predecoded)
     error(ClassUtils.getClassName(self) .. " has not overriden load!")
 end
+
+---@param task TTask
+---@return {kind: "image"|"sound", path: string}[]? files
+function AssetLoader:getDecodeJobs(task) end
 
 ---@param asset_id string
 ---@param output TTaskResult

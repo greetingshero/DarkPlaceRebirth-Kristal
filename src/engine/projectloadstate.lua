@@ -9,6 +9,7 @@ function ProjectLoading:enter(from, after)
     self.stage:addChild(self.dog)
     self.after = after
     self.finished_loading = false
+    self.enter_time = love.timer.getTime()
 end
 
 function ProjectLoading:draw()
@@ -25,6 +26,9 @@ function ProjectLoading:update()
     self.stage:update()
     if loaded >= total then
         self.after()
+        if Kristal.Config["verboseLoader"] then
+            print(string.format("[Assets] Project fully loaded %d assets in %.1fms", bucket.assets_loaded, (love.timer.getTime() - self.enter_time) * 1000))
+        end
         self.finished_loading = true
     end
 end
