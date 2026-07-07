@@ -1,12 +1,12 @@
 local in_channel = love.thread.getChannel("asset_decode_in")
 local out_channel = love.thread.getChannel("asset_decode_out")
 
+-- if you have a better way to implement this please do that
 while true do
     local job = in_channel:demand()
     if job == "stop" then
         break
     end
-AssetLoader()
 
     local results = {}
     local ok = pcall(function()
