@@ -34,6 +34,13 @@ function Echo:getCastMessage(user, target)
     return "* "..user.chara:getName().." echoed "..self.current_spell:getName().."!"
 end
 
+function Echo:getLightCastMessage(user, target)
+	if not self.current_spell then
+		return "* "..user.chara:getName().."'s voice echoed aimlessly..."
+	end
+    return "* "..user.chara:getName().." echoed "..self.current_spell:getName().."!"
+end
+
 function Echo:onCast(user, target)
 	if self.current_spell then
 		return self.current_spell:onCast(user, target)
