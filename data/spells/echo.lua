@@ -13,6 +13,8 @@ function Echo:init()
     -- Menu description
     self.description = "Echo a spell of one of your allies."
 
+    self.check = {"Echo a spell of one of your allies.", "* Doesn't work in the Light World."}
+
     -- TP cost
     self.cost = 70
 
@@ -27,14 +29,21 @@ function Echo:init()
 	self.spell_int = -1
 end
 
-function Echo:getCastMessage(user, target)
-	if not self.current_spell then
-		return "* "..user.chara:getName().."'s voice echoed aimlessly..."
-	end
-    return "* "..user.chara:getName().." echoed "..self.current_spell:getName().."!"
+function Echo:getBattleDescription()
+    if Game:isLight() then
+        return "Cannot\nuse"
+    end
+    return self.effect
 end
 
-function Echo:getLightCastMessage(user, target)
+function Echo:isUsable(chara)
+    if Game:isLight() then
+        return false
+    end
+    return self.usable
+end
+
+function Echo:getCastMessage(user, target)
 	if not self.current_spell then
 		return "* "..user.chara:getName().."'s voice echoed aimlessly..."
 	end
@@ -44,17 +53,6 @@ end
 function Echo:onCast(user, target)
 	if self.current_spell then
 		return self.current_spell:onCast(user, target)
-	end
-	Game:giveTension(40)
-end
-
-function Echo:onLightCast(user, target)
-	if self.current_spell then
-        if self.current_spell.onLightCast then
-		    return self.current_spell:onLightCast(user, target)
-        else
-            return self.current_spell:onCast(user, target)
-        end
 	end
 	Game:giveTension(40)
 end
