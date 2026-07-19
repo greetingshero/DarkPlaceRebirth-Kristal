@@ -21,7 +21,7 @@ function Echo:init()
 
     -- Tags that apply to this spell
     self.tags = {"echo"}
-	
+
 	self.current_spell = nil
 	self.spells = {}
 	self.spell_int = -1
@@ -37,6 +37,17 @@ end
 function Echo:onCast(user, target)
 	if self.current_spell then
 		return self.current_spell:onCast(user, target)
+	end
+	Game:giveTension(40)
+end
+
+function Echo:onLightCast(user, target)
+	if self.current_spell then
+        if self.current_spell.onLightCast then
+		    return self.current_spell:onLightCast(user, target)
+        else
+            return self.current_spell:onCast(user, target)
+        end
 	end
 	Game:giveTension(40)
 end
