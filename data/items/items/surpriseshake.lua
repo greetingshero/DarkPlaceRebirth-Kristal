@@ -36,9 +36,8 @@ function item:init()
         ralsei = "It's strawberry!",
         noelle = "Hey, it's like eggnog!",
 		dess = "hoooolyyyyy shiiiiiieeeeeet",
-        jamm = "",
-        calypso = "",
-        ["jamm+marcy"] = "",
+        jamm = "Hey, chicken terriyaki!",
+        calypso = "Aye, the taste o' rum!",
         noel = "",
         ceroba = "Something... floral?",
     }
@@ -49,9 +48,8 @@ function item:init()
         ralsei = "It's all salty...",
         noelle = "Hey, why is it warm!?",
 		dess = "ew it's sweet",
-        jamm = "",
-        calypso = "",
-        ["jamm+marcy"] = "",
+        jamm = "Ugh, kale...",
+        calypso = "Argh, seaweed...",
         noel = "",
         ceroba = "Ugh... It's lemon...",
     }

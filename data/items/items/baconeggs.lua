@@ -39,8 +39,8 @@ function item:init()
         ralsei = "I never tried that before...",
         noelle = "Um... I'll leave the bacon...",
         dess = "ew meat in MY tray",
-        jamm = "",
-        calypso = "",
+        jamm = "Just as good as homemade!",
+        calypso = "Aye, a good start to me day!",
         ceroba = "Not MY usual breakfast meal.",
     }
 end
