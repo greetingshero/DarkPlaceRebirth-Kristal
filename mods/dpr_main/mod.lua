@@ -860,24 +860,12 @@ function Mod:makeSpellsMissAgainstJackenstein()
         end
     end)
     local spell = Registry.getSpell("xslash")
-    HookSystem.hook(spell, "onCast", function (orig, self, user, target)
-    local damage = math.floor((((user.chara:getStat("attack") * 150) / 20) - 3 * (target.defense)) * 1.3)
-
-        ---@type XSlashSpell
-        local spellobj = XSlashSpell(user,target)
+    HookSystem.hook(spell, "getDamage", function (orig, self, user, target)
         if Game.battle.encounter.is_jackenstein then
-            spellobj.y = spellobj.y - 60
+            return 0
+        else
+            return orig(self, user, target)
         end
-        Game.battle:addChild(spellobj):setLayer(BATTLE_LAYERS["above_battlers"])
-        spellobj.damage_callback = function(self, hit_action_command)
-            local strikedmg = damage
-            if Game.battle.encounter.is_jackenstein then
-                target:hurt(0, user)
-            else
-                target:hurt(strikedmg, user)
-            end
-        end
-        return false
     end)
     local spell = Registry.getSpell("ice_shock")
     HookSystem.hook(spell, "onCast", function (orig, self, user, target)
