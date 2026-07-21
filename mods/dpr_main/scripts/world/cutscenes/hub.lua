@@ -1978,7 +1978,7 @@ local hub = {
 
         if choice == 1 then
             cutscene:textTagged("* i'm currently selling some fried snow for 5G...", "joking", "sans")
-            cutscene:textTagged("* and some hot dogs,\n[wait:5] 30G for each one.", "neutral", "sans")
+            cutscene:textTagged("* and some hot dogs,\n [wait:5]30G for each one.", "neutral", "sans")
             cutscene:textTagged("* which one will it be?", "wink", "sans")
 
             local choice = cutscene:choicer({ "Hot Dog", "Fried Snow" })
@@ -1988,15 +1988,18 @@ local hub = {
                 cutscene:textTagged("* cool.\n[wait:5]* that'll be 30G.", "neutral", "sans")
                 local dog_choice = cutscene:choicer({ "Buy", "No" })
                 if dog_choice == 1 then
-                    if Game.money <= 30 then
-                        cutscene:textTagged("* whoops, you don't have\n enough cash.")
+                    if Game.money < 30 then
+                        cutscene:textTagged("* whoops,[wait:5] you don't have \nenough cash.", "joking", "sans")
 					else
-                        --not done yet
-
-                        cutscene:playSound("locker")
-                        --Game.inventory:addItem("ut_hotdog")
-                        --Game.money = Game.money - 30
-                        cutscene:textTagged("* thanks, kid.\n[wait:5]* here's your 'dog.", "wink", "sans")
+                        if Game.inventory:getFreeSpace("items", false) > 0 then -- he can't place 'em in the storage
+                            Game.inventory:addItem("hotdog")
+                            cutscene:playSound("locker")
+                            Game.money = Game.money - 30
+                            cutscene:textTagged("* thanks, kid.\n[wait:5]* here's your 'dog.", "wink", "sans")
+                        else
+                            cutscene:textTagged("* whoops,[wait:5] seems like you're full on items.", "neutral", "sans")
+                            cutscene:textTagged("* maybe some other time,[wait:5] yeah?", "joking", "sans")
+                        end
                     end
                 else
                 end
