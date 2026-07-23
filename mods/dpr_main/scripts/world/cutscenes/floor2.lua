@@ -94,7 +94,8 @@ return {
         Game.world.music:play("mainhub")
         zoom(1, 0)
         cutscene:attachCameraImmediate()
-		
+        local tempremovecutscene = Game.world:getEvent("script")
+		tempremovecutscene:remove()
     end,
 
     backrooms_entry = function(cutscene, event)
