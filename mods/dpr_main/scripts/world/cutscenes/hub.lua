@@ -1606,7 +1606,6 @@ local hub = {
         elseif event.interact_count == 4 then
             -- The 4th... wah..?
             local wah4_sprite_list = {
-                YOU = "date",
                 susie = "shock",
                 ralsei = "surprised_down",
                 noelle = "shocked",
