@@ -1,7 +1,7 @@
 return {
-  version = "1.9",
+  version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.9.0",
+  tiledversion = "1.11.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -137,7 +137,7 @@ return {
         {
           id = 2,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 0,
           y = 160,
@@ -150,7 +150,7 @@ return {
         {
           id = 7,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 0,
           y = 320,
@@ -163,7 +163,7 @@ return {
         {
           id = 12,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 212,
           y = 240,
@@ -192,7 +192,7 @@ return {
         {
           id = 8,
           name = "transition",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = -40,
           y = 240,
@@ -208,7 +208,7 @@ return {
         {
           id = 13,
           name = "spotlight",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 300,
           y = -270,
@@ -226,7 +226,7 @@ return {
         {
           id = 14,
           name = "interactable",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 40,
           y = 160,
@@ -241,7 +241,7 @@ return {
         {
           id = 16,
           name = "wobblything",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 345,
           y = 256,
@@ -258,7 +258,7 @@ return {
         {
           id = 17,
           name = "script",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 196,
           y = 200,
@@ -268,7 +268,7 @@ return {
           visible = true,
           properties = {
             ["cutscene"] = "floor2.wobblything",
-            ["once"] = true
+            ["once"] = false
           }
         }
       }
@@ -290,7 +290,7 @@ return {
         {
           id = 10,
           name = "entry_main_1",
-          class = "",
+          type = "",
           shape = "point",
           x = 30,
           y = 280,
@@ -303,7 +303,7 @@ return {
         {
           id = 11,
           name = "spawn",
-          class = "",
+          type = "",
           shape = "point",
           x = 80,
           y = 280,

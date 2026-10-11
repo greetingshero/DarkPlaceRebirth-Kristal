@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.0" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="9" nextobjectid="18">
+<map version="1.11" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="16" height="12" tilewidth="40" tileheight="40" infinite="0" nextlayerid="9" nextobjectid="18">
  <editorsettings>
   <export target="wobblything_room.lua" format="lua"/>
  </editorsettings>
@@ -92,7 +92,7 @@
   <object id="17" name="script" x="196" y="200" width="40" height="160">
    <properties>
     <property name="cutscene" value="floor2.wobblything"/>
-    <property name="once" type="bool" value="true"/>
+    <property name="once" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>
